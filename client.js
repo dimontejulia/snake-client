@@ -4,10 +4,10 @@
 const net = require("net");
 const connect = function () {
   const conn = net.createConnection({
-    host: "135.23.222.131",
-    port: 50542,
-    // host: "localhost",
-    // port: 50541,
+    // host: "135.23.222.131",
+    // port: 50542,
+    host: "localhost",
+    port: 50541,
   });
   // interpret incoming data as text
   conn.setEncoding("utf8");
@@ -15,6 +15,11 @@ const connect = function () {
     "connect",
     () => console.log("Successfully connected to game server"),
     conn.write("Name: JD")
+
+    /* Hard-coded movements
+    setTimeout(() => conn.write("Move: left"), 50),
+    setTimeout(() => conn.write("Move: left"), 50),
+    */
   );
   console.log("you ded cuz you idled");
   return conn;
